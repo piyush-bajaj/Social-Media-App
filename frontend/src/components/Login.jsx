@@ -3,10 +3,19 @@ import shareVideo from '../assets/share.mp4'
 import logo from '../assets/logo.png'
 import { useGoogleLogin } from '@react-oauth/google';
 import {FcGoogle} from 'react-icons/fc'
+import axios from 'axios';
 
 function Login() {
     const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
+        onSuccess: async tokenResponse => {
+            const userInfo = await axios.get(
+                'https://www.googleapis.com/auth/userinfo.profile',
+                {
+                    headers: {Authorization: `Bearer ${tokenResponse.access_token}`}
+                }
+            )
+            console.log(userInfo)
+        },
         onError: tokenResponse => console.log(tokenResponse)
     })
 
