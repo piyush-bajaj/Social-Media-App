@@ -2,10 +2,12 @@ import React from 'react'
 import shareVideo from '../assets/share.mp4'
 import logo from '../assets/logo.png'
 import { GoogleLogin } from '@react-oauth/google';
+import jwt_decode from "jwt-decode";
 
 function Login() {
     const loginSuccess = (response) => {
-        console.log(response)
+        const decoded = jwt_decode(response.credential)
+        console.log(decoded)
     }
 
     const loginFailed = (response) => {
