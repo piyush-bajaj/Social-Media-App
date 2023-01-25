@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 
 import { client } from '../client';
 
-function Login() {
+const Login =() => {
     const navigate = useNavigate();
 
     const loginSuccess = (response) => {
