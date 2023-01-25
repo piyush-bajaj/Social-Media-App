@@ -1,23 +1,16 @@
 import React from 'react'
 import shareVideo from '../assets/share.mp4'
 import logo from '../assets/logo.png'
-import { useGoogleLogin } from '@react-oauth/google';
-import {FcGoogle} from 'react-icons/fc'
-import axios from 'axios';
+import { GoogleLogin } from '@react-oauth/google';
 
 function Login() {
-    const login = useGoogleLogin({
-        onSuccess: async tokenResponse => {
-            const userInfo = await axios.get(
-                'https://www.googleapis.com/auth/userinfo.profile',
-                {
-                    headers: {Authorization: `Bearer ${tokenResponse.access_token}`}
-                }
-            )
-            console.log(userInfo)
-        },
-        onError: tokenResponse => console.log(tokenResponse)
-    })
+    const loginSuccess = (response) => {
+        console.log(response)
+    }
+
+    const loginFailed = (response) => {
+        console.log(response)
+    }
 
     return (
         <div className='flex justify-start items-center flex-col h-screen'>
@@ -38,14 +31,11 @@ function Login() {
                     </div>
                 </div>
 
-                <div className='shadow-2xl absolute flex flex-col justify-center items-center top-20 right-0 left-0 bottom-0'>                    
-                    <button
-                        type="button"
-                        className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
-                        onClick={() => login()}
-                    >
-                        <FcGoogle className="mr-4" /> Sign in with google
-                    </button>
+                <div className='shadow-2xl absolute flex flex-col justify-center items-center top-20 right-0 left-0 bottom-0'>
+                    <GoogleLogin 
+                        onSuccess={loginSuccess}
+                        onError={loginFailed}
+                    />
                 </div>
             </div>
         </div>
