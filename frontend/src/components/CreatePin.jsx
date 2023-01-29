@@ -98,7 +98,7 @@ const CreatePin = ({ user }) => {
                                     </p>
                                 </div>
                                 <input 
-                                    type='image'
+                                    type='file'
                                     name='upload-image'
                                     onChange={uploadImage}
                                     className='w-0 h-0'
