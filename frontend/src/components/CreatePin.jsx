@@ -21,7 +21,7 @@ const CreatePin = ({ user }) => {
 
     const uploadImage = (e) => {
         const {type, name} = e.target.files[0]
-        if(type === 'image/png' || type === 'image/svg' || type === 'image/jpg' || type === 'image/gif' || type === 'image/tiff') {
+        if(type === 'image/png' || type === 'image/svg' || type === 'image/jpg' || type === 'image/jpeg' || type === 'image/gif' || type === 'image/tiff') {
             setWrongImageType(false)
             setLoading(true)
 
@@ -54,7 +54,7 @@ const CreatePin = ({ user }) => {
                         _ref: imageAsset?._id
                     }
                 },
-                userId: user._id,
+                userID: user._id,
                 postedBy: {
                     _type: 'postedBy',
                     _ref: user._id,
@@ -62,7 +62,7 @@ const CreatePin = ({ user }) => {
                 category
             }
 
-            client.create(document)
+            client.create(_doc)
             .then(() => {
                 navigate('/')
             })

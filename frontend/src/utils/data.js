@@ -62,7 +62,7 @@ export const searchQuery = (searchTerm) => {
             asset -> {
                 url
             },
-        }
+        },
         _id,
         destination,
         postedBy -> {
@@ -83,12 +83,12 @@ export const searchQuery = (searchTerm) => {
     return query
 }
 
-export const feedQuery = `*[_type='pin'] | order(_createAt desc) {
+export const feedQuery = `*[_type == 'pin'] | order(_createAt desc) {
     image {
         asset -> {
             url
         },
-    }
+    },
     _id,
     destination,
     postedBy -> {
