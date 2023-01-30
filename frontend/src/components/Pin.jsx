@@ -86,7 +86,7 @@ const Pin = ({ pin : {postedBy, image, _id, destination, save }, className}) => 
                             </button>
                         )}
                     </div>
-                    <div className='flex justify-between items-center gap-2 w-4'>
+                    <div className='flex justify-between items-center gap-2 w-full'>
                         {destination && (
                             <a
                                 href={destination}
@@ -104,7 +104,7 @@ const Pin = ({ pin : {postedBy, image, _id, destination, save }, className}) => 
                                     e.stopPropagation()
                                     deletePin(_id)
                                 }} 
-                                type='button' className='bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none'
+                                type='button' className='bg-white p-2 opacity-70 hover:opacity-100 font-bold text-dark text-base rounded-3xl hover:shadow-md outline-none'
                             >
                                 <AiTwotoneDelete />
                             </button>
