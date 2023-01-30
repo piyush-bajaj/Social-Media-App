@@ -24,8 +24,8 @@ const Pin = ({ pin : {postedBy, image, _id, destination, save }, className}) => 
             .patch(id)
             .setIfMissing({save: []})
             .insert('after', 'save[-1]', [{
-                _key: uuidv4,
-                userId: user.sub,
+                _key: uuidv4(),
+                userID: user.sub,
                 postedBy: {
                     _type:'postedBy',
                     _ref: user.sub

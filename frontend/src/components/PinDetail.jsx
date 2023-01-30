@@ -42,7 +42,7 @@ const PinDetail = ({user}) => {
             .setIfMissing({comments: []})
             .insert('after', 'comments[-1]', [{
                 comment,
-                _key: uuidv4,
+                _key: uuidv4(),
                 postedBy: {
                     _type: 'postedBy',
                     _ref: user._id
